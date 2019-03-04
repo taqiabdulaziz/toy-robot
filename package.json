@@ -1,0 +1,27 @@
+{
+  "name": "toy-robot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taqiabdulaziz/toy-robot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taqiabdulaziz/toy-robot/issues"
+  },
+  "homepage": "https://github.com/taqiabdulaziz/toy-robot#readme",
+  "dependencies": {
+    "npm": "^6.8.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
+  }
+}
