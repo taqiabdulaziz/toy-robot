@@ -73,7 +73,7 @@ describe(`Test my robot movement`, () => {
         expect(robot.report()).to.equal(`0,0,WEST`)
     })
 
-    it(`Expected output: `, () => {
+    it(`Expected output: 5,0,EAST`, () => {
         robot.placeRobot(0, 0, `EAST`)
         robot.move()
         robot.move()
@@ -82,6 +82,19 @@ describe(`Test my robot movement`, () => {
         robot.move()
         robot.move()
         expect(robot.report()).to.equal(`5,0,EAST`)
+    })
+
+    it(`Expected output: 5,0,EAST, ignoring 6th move while going east`, () => {
+        robot.placeRobot(0, 0, `EAST`)
+        robot.move()
+        robot.move()
+        robot.move()
+        robot.move()
+        robot.move()
+        robot.move()
+        robot.changeDirection('LEFT')
+        robot.move()
+        expect(robot.report()).to.equal(`5,1,NORTH`)
     })
 
 })
