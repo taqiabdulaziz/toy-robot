@@ -26,29 +26,11 @@ class Robot {
     }
 
     /* GETTER SETTER */
-    set x(x) {
+    set setX(x) {
         this._place.x = x
-    }
-
-    set y(y) {
-        this._place.y = y
-    }
-
-    set face(f) {
-        this._face = f
-    }
-
-    get x() {
-        return this._place.x
-    }
-
-    get y() {
-        return this._place.y
-    }
-
-    get face() {
-        return this._face
     }
 }
 
-module.exports = Robot
+var robot = new Robot()
+robot.placeRobot(2)
+console.log(robot)
