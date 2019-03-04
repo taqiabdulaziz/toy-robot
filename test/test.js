@@ -6,6 +6,9 @@ let expect = chai.expect
 
 describe(`Test my robot movement`, () => {
 
+    beforeEach(() => {
+        robot = new Robot()
+    })
     //1
     it(`Expected output: 0,1,NORTH`, () => {
         robot.placeRobot(0, 0, `NORTH`)
@@ -39,11 +42,11 @@ describe(`Test my robot movement`, () => {
 
     it("Expect robot cant move", () => {
         robot.move()
-        expect(robot.report).to.be.undefined
+        expect(robot.report()).to.equal(`undefined,undefined,undefined`)
     })
 
     it(`Expected output: 0,0,NORTH`, () => {
-        robot.placeRobot()
+        robot.placeRobot(0,0,`NORTH`)
         robot.move()
         expect(robot.report()).to.equal("0,1,NORTH")
     })
@@ -78,7 +81,7 @@ describe(`Test my robot movement`, () => {
         robot.move()
         robot.move()
         robot.move()
-        expect(robot.report()).to.equal(5,0,`EAST`)
+        expect(robot.report()).to.equal(`5,0,EAST`)
     })
 
 })
