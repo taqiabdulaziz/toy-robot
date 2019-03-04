@@ -8,25 +8,51 @@ const rl = readline.createInterface({
     output: process.stdout
 })
 console.clear()
-rl.setPrompt("Selamat datang di toy robot! cobalah input command berikut: (PLACE, LEFT, RIGHT, MOVE, REPORT, CLOSE) Tekan ENTER kalau mau bermain")
-rl.prompt(true)
+console.log("Selamat datang di toy robot! cobalah input command berikut: (PLACE, LEFT, RIGHT, MOVE, REPORT, CLOSE)");
 
-rl.on('line', (input) => {
-    if (!input) {
+
+rl.on('line', (text) => {
+    if (!text) {
         return
     }
-    command = input.split(' ').slice(1)
-    input = input.split(' ')[0].toUpperCase()
+    input = text.split(' ')[0].toUpperCase()
     console.clear()
 
     switch (input) {
         case "PLACE":
-            console.log(command);
-            
+            command = text.split(' ').slice(1)
+            if (command.length != 0) {
+                command = command.join(`,`).split(`,`)
+                if (command.length < 3) {
+                    console.clear()
+                    console.log(`Please provide proper PLACE command`);
+                } else {
+                    robot.placeRobot(command[0], command[1], command[2].toUpperCase())
+                }
+            }
+
             break;
 
         case "REPORT":
-            robot.report()
+            console.log(robot.report());
+
+            break;
+
+        case "MOVE":
+            robot.move()
+            break;
+
+        case "LEFT":
+            robot.changeDirection(input)
+            break;
+
+        case "RIGHT":
+            robot.changeDirection(input)
+            break;
+
+        default:
+            console.log(`try these command (PLACE, LEFT, RIGHT, MOVE, REPORT, CLOSE)`);
+
             break;
     }
 

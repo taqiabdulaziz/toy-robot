@@ -42,7 +42,7 @@ describe(`Test my robot movement`, () => {
 
     it("Expect robot cant move", () => {
         robot.move()
-        expect(robot.report()).to.equal(`undefined,undefined,undefined`)
+        expect(robot.report()).to.equal(`Robot is not placed yet`)
     })
 
     it(`Expected output: 0,0,NORTH`, () => {
