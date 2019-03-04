@@ -50,6 +50,15 @@ rl.on('line', (text) => {
             robot.changeDirection(input)
             break;
 
+        case "CLOSE":
+            console.log(`BYE!`);
+            setTimeout(() => {
+                console.clear()
+                rl.close()
+            }, 1000);
+            
+            break;
+
         default:
             console.log(`try these command (PLACE, LEFT, RIGHT, MOVE, REPORT, CLOSE)`);
 
